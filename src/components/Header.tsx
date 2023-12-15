@@ -3,13 +3,15 @@ import { usePathname } from "next/navigation";
 import { DarkModeToggler } from "./DarkModeToggler";
 import { ShoppingCart, Heart } from "lucide-react";
 import Link from "next/link";
+import logo from "../../public/logo.png";
+import Image from "next/image";
 
 const Header = () => {
   const router = usePathname();
   console.log(router);
   return (
-    <header className="flex items-center justify-between w-full bg-white border-b-2  dark:bg-black  h-20 px-4">
-      <div className="h-full flex items-center  ">Logo</div>
+    <header className="flex items-center justify-between w-full bg-white border-b-2  dark:bg-black  h-20 px-4 sticky top-0 z-50">
+      <Image alt="logo" src={logo} className="w-20 md:w-32  dark:invert " />
       <div className="md:flex items-center space-x-2 hidden">
         <Link className={router === "/" ? "text-yellow-500" : ""} href="/">
           <p>Home</p>
